@@ -2,6 +2,8 @@ package sol3675.middleearththaumaturgy.aspect;
 
 import cpw.mods.fml.common.Loader;
 import lotr.common.LOTRMod;
+import lotr.common.entity.LOTREntities;
+import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import sol3675.middleearththaumaturgy.common.blocks.MiddleEarthThaumaturgyBlocks;
 import sol3675.middleearththaumaturgy.helper.LotrBlocks;
@@ -9,6 +11,10 @@ import sol3675.middleearththaumaturgy.helper.LotrItems;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+
+import java.util.Map;
+
+import static lotr.common.entity.LOTREntities.classToIDMapping;
 
 public class LotrAspectRegister {
 
@@ -1067,9 +1073,12 @@ public class LotrAspectRegister {
 			ThaumcraftApi.registerObjectTag(new ItemStack(LOTRMod.daggerCorsairPoisoned), new AspectList().add(Weapon, 4).add(Metal, 3).add(Nearharad, 1).add(Poison, 2));
 			ThaumcraftApi.registerObjectTag(new ItemStack(LOTRMod.spearCorsair), new AspectList().add(Weapon, 5).add(Metal, 3).add(Nearharad, 1).add(Tree, 1));
 			ThaumcraftApi.registerObjectTag(new ItemStack(LOTRMod.battleaxeCorsair), new AspectList().add(Weapon, 8).add(Metal, 12).add(Nearharad, 3));
+			EntityRegister.init();
+//			ThaumcraftApi.registerEntityTag("Blaze", (new AspectList()).add(Aspect.ELDRITCH, 4).add(Aspect.FIRE, 1));
 		}
 		catch(Exception e){
 			//Error
+			e.printStackTrace();
 		}
 
 	}
